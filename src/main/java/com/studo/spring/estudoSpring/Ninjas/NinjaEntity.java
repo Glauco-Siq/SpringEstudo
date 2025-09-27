@@ -1,13 +1,12 @@
-package com.studo.spring.estudoSpring;
+package com.studo.spring.estudoSpring.Ninjas;
 
 
+import com.studo.spring.estudoSpring.Missoes.MissoesEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,5 +23,9 @@ public class NinjaEntity {
     private String nome;
     private int idade;
     private String email;
+    // @ManyToOne: um ninja tem uma unica missao
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // foreing key
+    private MissoesEntity missao;
 
 }
